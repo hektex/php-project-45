@@ -1,0 +1,10 @@
+{
+    "name": "hexlet/code",
+    "authors": [
+        {
+            "name": "hektex",
+            "email": "coder@hexlet.net"
+        }
+    ],
+    "require": {}
+}
