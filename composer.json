@@ -6,5 +6,8 @@
             "email": "coder@hexlet.net"
         }
     ],
-    "require": {}
+    "require": {},
+    "bin": [
+        "bin/brain-games"
+    ]
 }
