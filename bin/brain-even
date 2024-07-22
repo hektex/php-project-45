@@ -1,0 +1,35 @@
+#!/usr/bin/env php
+<?php
+
+require_once __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__.'/../src/Cli.php';
+
+use function Cli\welcome;
+use function cli\line;
+use function cli\prompt;
+
+$name = welcome();
+
+function play_game($name)
+{
+    $counter = 0;
+    
+    while ($counter != 3) {
+        $number = rand(1, 100);
+        $right_answer = $number % 2 == 0 ? 'yes' : 'no';
+
+        line('Question: %s', $number);
+        $answer = prompt('Your answer: ');
+        if ($answer === $right_answer) {
+            line('Correct!');
+            $counter++;
+        } else {
+            line("'%s' is wrong answer ;(. Correct answer was '%s'", $answer, $right_answer);
+            break;
+        }
+    }
+
+    return $counter == 3 ? 'Congratulations, ' . $name . '!' : "Let's try again, " . $name . "!";
+}
+
+line(play_game($name));
