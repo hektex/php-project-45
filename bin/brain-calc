@@ -7,7 +7,7 @@ require_once __DIR__ . '/structure';
 
 use function cli\line;
 
-line('Answer "yes" if the number is even, otherwise answer "no".');
+line('What is the result of the expression?');
 
 function generate_questions_and_answers()
 {
@@ -15,10 +15,13 @@ function generate_questions_and_answers()
     $answers = [];
 
     for ($i = 0; $i < 3; $i++) {
-        $number = rand(1, 100);
-        $answer = $number % 2 == 0 ? 'yes' : 'no';
-        $questions[] = $number;
-        $answers[] = $answer;
+        $number1 = rand(1, 10);
+        $number2 = rand(1, 10);
+        $operator = ['+', '-', '*'][array_rand(['+', '-', '*'])];
+        $answer = eval("return $number1 $operator $number2;");
+        $question = "$number1 $operator $number2";
+        $questions[] = $question;
+        $answers[] = (string) $answer;
     }
 
     return [$questions, $answers];
