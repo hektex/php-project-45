@@ -17,7 +17,7 @@ function play_game($questions, $right_answers)
 
     for ($i = 0; $i < count($questions); $i++) {
         line('Question: %s', $questions[$i]);
-        $answer = prompt('Your answer: ');
+        $answer = prompt('Your answer');
         if ($answer === $right_answers[$i]) {
             line('Correct!');
             $score++;

@@ -1,0 +1,41 @@
+#!/usr/bin/env php
+<?php
+
+require_once __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__ . '/../src/Cli.php';
+require_once __DIR__ . '/structure';
+
+use function cli\line;
+
+line('Find the greatest common divisor of given numbers.');
+
+function gcd($a, $b)
+{
+    while ($b != 0) {
+        $temp = $b;
+        $b = $a % $b;
+        $a = $temp;
+    }
+    return $a;
+}
+
+function generate_questions_and_answers()
+{
+    $questions = [];
+    $answers = [];
+
+    for ($i = 0; $i < 3; $i++) {
+        $number1 = rand(5, 30);
+        $number2 = rand(5, 30);
+        $question = $number1.' '.$number2;
+        $answer = gcd($number1, $number2);
+        $questions[] = $question;
+        $answers[] = (string) $answer;
+    }
+
+    return [$questions, $answers];
+}
+
+list($questions, $answers) = generate_questions_and_answers();
+$result = play_game($questions, $answers);
+line($result);
