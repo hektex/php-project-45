@@ -6,3 +6,4 @@
 - [Calc Game](https://asciinema.org/a/yzukY8U3QkFjiBhajhDEFnjKM)
 - [Gcd Game](https://asciinema.org/a/dSmHuzlE29plX6AAychrNzaVq)
 - [Progression Game](https://asciinema.org/a/JGqAlQZkcuyUiiVaNyzpI9mjv)
+- [Prime Game](https://asciinema.org/a/0CcWEAa9drL4AQaMWAj2jICFm)

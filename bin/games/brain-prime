@@ -1,0 +1,51 @@
+#!/usr/bin/env php
+<?php
+
+require_once __DIR__ . '/../../vendor/autoload.php';
+require_once __DIR__ . '/../../src/Cli.php';
+require_once __DIR__ . '/../structure';
+
+use function cli\line;
+
+$TYPE_GAME = 'prime';
+
+function is_prime($number)
+{
+    switch (true) {
+        case $number < 2:
+            return false;
+        case $number == 2:
+            return true;
+        case $number % 2 == 0:
+            return false;
+        default:
+            $sqrt = (int) sqrt($number);
+            for ($i = 3; $i <= $sqrt; $i += 2) {
+                if ($number % $i == 0) {
+                    return false;
+                }
+            }
+            return true;
+    }
+}
+
+
+function generate_questions_and_answers()
+{
+    $questions = [];
+    $answers = [];
+
+    for ($i = 0; $i < 3; $i++) {
+        $number = rand(2, 100);
+        $is_prime = is_prime($number);
+        $question = $number;
+        $answer = $is_prime ? 'yes' : "no";
+        $questions[] = $question;
+        $answers[] = $answer;
+    }
+
+    return ['questions' => $questions, 'answers' => $answers];
+}
+
+$questionsAndAnswers = generate_questions_and_answers();
+start_game($questionsAndAnswers['questions'], $questionsAndAnswers['answers'], $TYPE_GAME);

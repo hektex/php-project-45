@@ -3,7 +3,7 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 require_once __DIR__ . '/../src/Cli.php';
-require_once __DIR__ . '/structure';
+require_once __DIR__ . '/../structure';
 
 use function cli\line;
 
@@ -21,8 +21,6 @@ function gcd($a, $b)
 
 function generate_questions_and_answers()
 {
-    line('Find the greatest common divisor of given numbers.');
-
     $questions = [];
     $answers = [];
 

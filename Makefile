@@ -1,15 +1,17 @@
 .PHONY: brain-games
-brain-games:
-	./bin/brain-games
 lint:
 	composer exec --verbose phpcs -- --standard=PSR12 --report=full src bin
-brain-even:
-	./bin/brain-even
-brain-calc:
-	./bin/brain-calc
-brain-gcd:
-	./bin/brain-gcd
-brain-progression:
-	./bin/brain-progression
 install:
 	composer install
+brain-games:
+	./bin/games/brain-games
+brain-even:
+	./bin/games/brain-even
+brain-calc:
+	./bin/games/brain-calc
+brain-gcd:
+	./bin/games/brain-gcd
+brain-progression:
+	./bin/games/brain-progression
+brain-prime:
+	./bin/games/brain-prime

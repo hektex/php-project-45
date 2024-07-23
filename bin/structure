@@ -8,20 +8,19 @@ use function Cli\welcome;
 use function cli\line;
 use function cli\prompt;
 
-$name = welcome();
-
 function play_game($questions, $right_answers, $type_game)
 {
     $dict_games_of_names = array(
         "calc" => 'What is the result of the expression?',
         "even" => 'Answer "yes" if the number is even, otherwise answer "no".',
         'gcd' => 'Find the greatest common divisor of given numbers.',
-        'prg' => 'What number is missing in the progression?'
+        'prg' => 'What number is missing in the progression?',
+        'prime' => 'Answer "yes" if given number is prime. Otherwise answer "no".'
     );
 
     line($dict_games_of_names[$type_game]);
 
-    global $name;
+    $name = welcome();
     $score = 0;
 
     for ($i = 0; $i < count($questions); $i++) {
