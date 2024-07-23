@@ -20,14 +20,14 @@ function generate_questions_and_answers()
         $count_numbers = rand(5, 10);
         $number_hide = rand(1, $count_numbers);
 
-        $question = '';
+        $question = 'Question:';
 
         for ($j = 1; $j <= $count_numbers; $j++) {
             if ($j == $number_hide) {
-                $question .= " ..";
+                $question .= ' ..';
                 $answer = $number_start;
             } else {
-                $question .= " $number_start";
+                $question .= ' ' . $number_start;
             }
             $number_start += $factor;
         }
@@ -41,3 +41,4 @@ function generate_questions_and_answers()
 
 $questionsAndAnswers = generate_questions_and_answers();
 start_game($questionsAndAnswers['questions'], $questionsAndAnswers['answers'], $TYPE_GAME);
+
