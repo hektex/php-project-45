@@ -7,7 +7,7 @@ require_once __DIR__ . '/structure';
 
 use function cli\line;
 
-$TYPE_GAME = 'calc';
+$TYPE_GAME = 'prg';
 
 function generate_questions_and_answers()
 {
@@ -15,25 +15,23 @@ function generate_questions_and_answers()
     $answers = [];
 
     for ($i = 0; $i < 3; $i++) {
-        $number1 = rand(1, 10);
-        $number2 = rand(1, 10);
-        $operators = ['+', '-', '*'];
-        $operator = $operators[array_rand($operators)];
+        $factor = rand(2, 4);
+        $number_start = rand(4, 100);
+        $count_numbers = rand(5, 10);
+        $number_hide = rand(1, $count_numbers);
 
-        $answer = 0;
-        switch ($operator) {
-            case '+':
-                $answer = $number1 + $number2;
-                break;
-            case '-':
-                $answer = $number1 - $number2;
-                break;
-            case '*':
-                $answer = $number1 * $number2;
-                break;
+        $question = '';
+
+        for ($j = 1; $j <= $count_numbers; $j++) {
+            if ($j == $number_hide) {
+                $question = $question.' ..';
+                $answer = $number_start;
+            } else {
+                $question = $question.' '.$number_start;
+            }
+            $number_start = $number_start + $factor;
         }
 
-        $question = "$number1 $operator $number2";
         $questions[] = $question;
         $answers[] = (string) $answer;
     }

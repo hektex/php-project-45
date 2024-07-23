@@ -7,7 +7,7 @@ require_once __DIR__ . '/structure';
 
 use function cli\line;
 
-line('Find the greatest common divisor of given numbers.');
+$TYPE_GAME = 'gcd';
 
 function gcd($a, $b)
 {
@@ -21,6 +21,8 @@ function gcd($a, $b)
 
 function generate_questions_and_answers()
 {
+    line('Find the greatest common divisor of given numbers.');
+
     $questions = [];
     $answers = [];
 
@@ -33,9 +35,8 @@ function generate_questions_and_answers()
         $answers[] = (string) $answer;
     }
 
-    return [$questions, $answers];
+    return ['questions' => $questions, 'answers' => $answers];
 }
 
-list($questions, $answers) = generate_questions_and_answers();
-$result = play_game($questions, $answers);
-line($result);
+$questionsAndAnswers = generate_questions_and_answers();
+start_game($questionsAndAnswers['questions'], $questionsAndAnswers['answers'], $TYPE_GAME);

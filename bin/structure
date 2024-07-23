@@ -10,8 +10,17 @@ use function cli\prompt;
 
 $name = welcome();
 
-function play_game($questions, $right_answers)
+function play_game($questions, $right_answers, $type_game)
 {
+    $dict_games_of_names = array(
+        "calc" => 'What is the result of the expression?',
+        "even" => 'Answer "yes" if the number is even, otherwise answer "no".',
+        'gcd' => 'Find the greatest common divisor of given numbers.',
+        'prg' => 'What number is missing in the progression?'
+    );
+
+    line($dict_games_of_names[$type_game]);
+
     global $name;
     $score = 0;
 
@@ -30,4 +39,10 @@ function play_game($questions, $right_answers)
     return $score === 3
         ? "Congratulations, {$name}!"
         : "Let's try again, {$name}!";
+}
+
+function start_game($questions, $answers, $name_game)
+{
+    $result = play_game($questions, $answers, $name_game);
+    line($result);
 }
