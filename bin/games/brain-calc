@@ -9,14 +9,17 @@ use function cli\line;
 
 $TYPE_GAME = 'calc';
 
+const MIN_NUMBER = 1;
+const MAX_NUMBER = 10;
+
 function generate_questions_and_answers()
 {
     $questions = [];
     $answers = [];
 
     for ($i = 0; $i < 3; $i++) {
-        $number1 = rand(1, 10);
-        $number2 = rand(1, 10);
+        $number1 = rand(MIN_NUMBER, MAX_NUMBER);
+        $number2 = rand(MIN_NUMBER, MAX_NUMBER);
         $operators = ['+', '-', '*'];
         $operator = $operators[array_rand($operators)];
 

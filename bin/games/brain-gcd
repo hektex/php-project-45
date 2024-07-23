@@ -1,9 +1,9 @@
 #!/usr/bin/env php
 <?php
 
-require_once __DIR__ . '/../vendor/autoload.php';
-require_once __DIR__ . '/../src/Cli.php';
-require_once __DIR__ . '/../structure';
+require_once DIR . '/../vendor/autoload.php';
+require_once DIR . '/../src/Cli.php';
+require_once DIR . '/../structure';
 
 use function cli\line;
 
@@ -27,7 +27,7 @@ function generate_questions_and_answers()
     for ($i = 0; $i < 3; $i++) {
         $number1 = rand(5, 30);
         $number2 = rand(5, 30);
-        $question = $number1.' '.$number2;
+        $question = "$number1 $number2";
         $answer = gcd($number1, $number2);
         $questions[] = $question;
         $answers[] = (string) $answer;

@@ -24,12 +24,12 @@ function generate_questions_and_answers()
 
         for ($j = 1; $j <= $count_numbers; $j++) {
             if ($j == $number_hide) {
-                $question = $question.' ..';
+                $question .= " ..";
                 $answer = $number_start;
             } else {
-                $question = $question.' '.$number_start;
+                $question .= " $number_start";
             }
-            $number_start = $number_start + $factor;
+            $number_start += $factor;
         }
 
         $questions[] = $question;
